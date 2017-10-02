@@ -1,0 +1,46 @@
+          var onRun = function(context) {
+          // Distribute around circle circumreference
+
+    var selection = context.selection
+    
+if ( selection.count() > 1 ) {
+
+    baseShape = selection[0];
+    baseFrame = baseShape.frame();
+
+    var cx, cy, r;
+    var n = selection.count() - 1;
+    cx = baseFrame.x() + (baseFrame.width() / 2);
+    cy = baseFrame.y() + (baseFrame.height() / 2);
+
+    if ( baseFrame.width() > baseFrame.height() ) {
+        r = baseFrame.height() / 2;
+    } else {
+        r = baseFrame.width() / 2;
+    }
+
+    //I store each point's coordinates in this array below
+    var coordinates = [];
+
+    for (var i=1; i <= n; i++) {
+        //defining point's angle with the center of the circle in radiant
+        //this angle distribute the points evenly over all 4 quadrants
+        var angle = ((360/n) * i) * (Math.PI/180);
+
+        //calculating the point's coordinates on the circle circumference
+        var pointX = cx + r * Math.cos(angle);
+        var pointY = cx + r * Math.sin(angle);
+
+        //storing the point's coordinates
+        coordinates.push([pointX, pointY]);
+        selection[i].frame().x = pointX - (selection[i].frame().width() / 2);
+        selection[i].frame().y = pointY - (selection[i].frame().height() / 2);
+
+        
+    }
+    log( coordinates );
+}
+
+
+          };
+          

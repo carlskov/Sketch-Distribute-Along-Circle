@@ -1,0 +1,24 @@
+{
+  "author" : "Jes Carlskov",
+  "commands" : [
+    {
+      "script" : "script.cocoascript",
+      "name" : "Distribute along circle",
+      "handlers" : {
+        "run" : "onRun"
+      },
+      "identifier" : "com.bohemiancoding.sketch.runscriptidentifier"
+    }
+  ],
+  "menu" : {
+    "title" : "Distribute along circle",
+    "items" : [
+      "com.bohemiancoding.sketch.runscriptidentifier"
+    ]
+  },
+  "identifier" : "com.example.sketch.a25c6d0a-bd43-4345-a13b-a596d259c3fd",
+  "version" : "1.0",
+  "description" : "",
+  "authorEmail" : "jes.carlskov@gmail.com",
+  "name" : "Distribute along circle"
+}
